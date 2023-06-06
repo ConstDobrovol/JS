@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Factorial Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
+    <script>
+        function calculateFactorial() {
+            let number = parseInt(document.getElementById("number-input").value);
+            let factorial = 1;
+
+            for (let i = 1; i <= number; i++) {
+                factorial *= i;
+            }
+
+            if (isNaN(factorial)) {
+                document.getElementById("factorial-result").textContent = "Пожалуйста, введите число.";
+            } else {
+                document.getElementById("factorial-result").textContent = `Факториал числа ${number}: ${factorial}`;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Factorial Example</h1>
+    <div class="form-group">
+        <label for="number-input">Введите число:</label>
+        <input type="number" class="form-control" id="number-input" placeholder="Введите число">
+    </div>
+    <button class="btn btn-primary" onclick="calculateFactorial()">Вычислить факториал</button>
+    <p id="factorial-result"></p>
+</div>
+</body>
+</html>

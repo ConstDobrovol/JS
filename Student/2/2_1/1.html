@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddles Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result span {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Riddles Game</h1>
+    <div id="riddles">
+        <h3>Загадка 1:</h3>
+        <p>Семь братцев друг за другом идут.<br>
+            Один другого никогда не обойдет.</p>
+        <input type="text" id="answer1" class="form-control" placeholder="Введите ответ">
+        <br>
+        <h3>Загадка 2:</h3>
+        <p>Раскаленная стрела дуб свалила у села.</p>
+        <input type="text" id="answer2" class="form-control" placeholder="Введите ответ">
+        <br>
+        <button id="checkBtn" class="btn btn-primary">Проверить</button>
+    </div>
+    <div id="result" class="result"></div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+    var otgadki = 0;
+
+    function checkAnswers() {
+        var answer1 = document.getElementById("answer1").value.toLowerCase();
+        var answer2 = document.getElementById("answer2").value.toLowerCase();
+
+        if (answer1 === "дни недели") {
+            otgadki += 1;
+        }
+
+        if (answer2 === "молния") {
+            otgadki += 1;
+        }
+
+        var resultMessage = "Количество отгадок: <span>" + otgadki + "</span>";
+        document.getElementById("result").innerHTML = resultMessage;
+    }
+
+    document.getElementById("checkBtn").addEventListener("click", checkAnswers);
+</script>
+</body>
+</html>

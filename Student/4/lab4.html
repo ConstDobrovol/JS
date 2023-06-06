@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Objects</title>
+</head>
+<body>
+<div class="container">
+    <h1>JavaScript Objects</h1>
+
+    <div id="task1">
+        <h3>Задание 1</h3>
+        <script>
+            let user = {
+                name: "Джон",
+                age: 30
+            };
+
+            user.sayHi = function () {
+                console.log("Привет!");
+            };
+
+            user.sayHi(); // Выводит "Привет!"
+        </script>
+    </div>
+
+    <div id="task2">
+        <h3>Задание 2</h3>
+        <script>
+            let customer = {
+                name: "John Doe",
+                age: 35,
+                address: "123 Main Street",
+                email: "johndoe@example.com",
+                phone: "555-123-4567"
+            };
+
+            console.log("Name:", customer.name);
+            console.log("Address:", customer.address);
+            console.log("Phone:", customer.phone);
+        </script>
+    </div>
+
+    <div id="task3">
+        <h3>Задание 3</h3>
+        <script>
+            let user1 = {
+                name: "John",
+                age: 25,
+                isAdmin: true
+            };
+
+            let user2 = {
+                name: "Jane",
+                age: 30,
+                isAdmin: false
+            };
+
+            let order = {
+                id: 1,
+                amount: 50.99,
+                status: "Delivered"
+            };
+
+            let restaurant = {
+                name: "Example Restaurant",
+                location: "123 Main Street",
+                rating: 4.5
+            };
+
+            if (user1.isAdmin) {
+                console.log("User 1 is an admin");
+            } else {
+                console.log("User 1 is not an admin");
+            }
+
+            console.log("Order ID:", order.id);
+            console.log("Restaurant:", restaurant.name);
+        </script>
+    </div>
+
+    <div id="task4">
+        <h3>Задание 4</h3>
+        <script>
+            function Group(name) {
+                this.name = name;
+            }
+
+            let myGroup = new Group("My Group");
+            console.log("Group name:", myGroup.name);
+        </script>
+    </div>
+
+    <div id="task5">
+        <h3>Задание 5</h3>
+        <script>
+            function Student(name) {
+                this.name = name;
+                this.sayHi = function () {
+                    console.log("Меня зовут: " + this.name);
+                };
+            }
+
+            let student1 = new Student("John");
+            student1.sayHi();
+        </script>
+    </div>
+</div>
+</body>
+</html>
