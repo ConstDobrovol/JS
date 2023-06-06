@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Вычисление среднего значения в массиве</title>
+ <meta charset="utf-8">
+ <style>
+  body {
+   font-family: Arial, sans-serif;
+   margin: 20px;
+  }
+
+  label {
+   font-weight: bold;
+  }
+
+  input[type="text"] {
+   padding: 5px;
+   margin-bottom: 10px;
+   width: 200px;
+  }
+
+  button {
+   padding: 10px 20px;
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   cursor: pointer;
+   margin-bottom: 10px;
+  }
+
+  button:hover {
+   background-color: #45a049;
+  }
+
+  #result {
+   font-weight: bold;
+  }
+ </style>
+ <script>
+  const calculateAverage = (arr) => {
+   let sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+   const average = sum / arr.length;
+   return 'Среднее значение в массиве равно: ' + average.toFixed(2);
+  }
+ </script>
+</head>
+<body>
+<label for="arr">Массив (через запятую):</label>
+<input type="text" id="arr"><br>
+
+<button onclick="document.getElementById('result').innerText = calculateAverage(document.getElementById('arr').value.split(',').map(Number))">Вычислить</button>
+
+<p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Массив и стрелочные функции для него</title>
+ <meta charset="utf-8">
+ <style>
+  body {
+   font-family: Arial, sans-serif;
+   margin: 20px;
+  }
+
+  p {
+   margin-bottom: 10px;
+  }
+
+  span {
+   font-weight: bold;
+  }
+ </style>
+ <script>
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const sum = arr.reduce((acc, cur) => acc + cur);
+  const evenNumbers = arr.filter(num => num % 2 === 0);
+  const doubled = arr.map(num => num * 2);
+
+  const displayResult = (elementId, result) => {
+   document.getElementById(elementId).innerText = result;
+  }
+ </script>
+</head>
+<body>
+<p>Массив: [1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+
+<p>Сумма всех элементов: <span id="sum"></span></p>
+
+<p>Четные элементы: <span id="evenNumbers"></span></p>
+
+<p>Каждый элемент, умноженный на 2: <span id="doubled"></span></p>
+
+<script>
+ displayResult('sum', sum);
+ displayResult('evenNumbers', evenNumbers);
+ displayResult('doubled', doubled);
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Количество дней до нового года</title>
+ <meta charset="utf-8">
+ <style>
+  body {
+   font-family: Arial, sans-serif;
+   margin: 20px;
+  }
+
+  button {
+   padding: 10px 20px;
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   cursor: pointer;
+   margin-bottom: 10px;
+  }
+
+  button:hover {
+   background-color: #45a049;
+  }
+
+  #result {
+   font-weight: bold;
+  }
+ </style>
+ <script>
+  const daysUntilNewYear = () => {
+   const today = new Date();
+   const newYear = new Date(today.getFullYear() + 1, 0, 1)
+   const daysLeft = Math.floor((newYear - today) / (1000 * 60 * 60 * 24));
+   return 'До Нового года осталось ' + daysLeft + ' дней';
+  }
+
+  const calculateAndDisplayResult = (callback) => {
+   const result = callback();
+   document.getElementById('result').innerText = result;
+  }
+ </script>
+</head>
+<body>
+<button onclick="calculateAndDisplayResult(daysUntilNewYear)">Вычислить</button>
+
+<p id="result"></p>
+</body>
+</html>
