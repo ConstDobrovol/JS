@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #3f7909;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    input[type="text"] {
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
+
+</style>
+<body>
+
+<table id="dataTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Serial Number</th>
+    </tr>
+    </thead>
+</table>
+
+<script>
+    fetch('https://644800af7bb84f5a3e4fa696.mockapi.io/test')
+        .then(response => response.json())
+        .then(data => {
+            const table = document.getElementById('dataTable');
+
+            const filterData = data.map(item => ({
+                id: item.id,
+                num: Math.floor(Math.random() * 1000)
+            }));
+
+            filterData.forEach(item => {
+                const row = createTableRow(item);
+                table.appendChild(row);
+            });
+        });
+
+    function createTableRow(item) {
+        const row = document.createElement('tr');
+
+        const idCell = document.createElement('td');
+        idCell.innerHTML = item.id;
+        row.appendChild(idCell);
+
+        const numCell = document.createElement('td');
+        numCell.innerHTML = item.num;
+        row.appendChild(numCell);
+
+        return row;
+    }
+</script>
+
+
+</body>
+</html>

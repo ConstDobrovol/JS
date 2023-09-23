@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1b1;
+      margin: 0;
+      padding: 21px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      width: 400px;
+      margin: 0 auto;
+      background-color: #808080;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgb(63, 121, 9);
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    table td {
+      padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 5px;
+      border-radius: 3px;
+      border: 1px solid #3f7909;
+    }
+
+    input[type="button"],
+    input[type="reset"] {
+      padding: 20px 20px;
+      background-color: #3f7909;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    input[type="button"]:hover,
+    input[type="reset"]:hover {
+      background-color: #111111;
+    }
+
+    .error-message {
+      color: #152a01;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+
+  <script>
+    function Complete1() {
+      const emailInput = document.Sel3.Email;
+      const email = emailInput.value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        document.getElementById("email-error").textContent =
+                "Неверный формат, попробуйте снова!";
+        return;
+      }
+
+      document.getElementById("email-error").textContent = "";
+
+      if (document.Sel3.Pwd.value == document.Sel3.Pwd1.value)
+        alert(
+                "Вас зарегистрировали\nID=" +
+                document.Sel3.Id.value +
+                "\nPassword=" +
+                document.Sel3.Pwd.value +
+                "\nEmail=" +
+                email
+        );
+      else alert("Ошибка при вводе пароля\nПопробуйте еще раз");
+    }
+  </script>
+</head>
+
+<body>
+<h1>Регистрация</h1>
+<form name="Sel3">
+  <table>
+    <tr>
+      <td><b>Логин:</b></td>
+      <td>
+        <input
+                name="Id"
+                size="22"
+                onBlur="this.value=this.value.toUpperCase()"
+        >
+      </td>
+    </tr>
+    <tr>
+      <td><b>Пароль:</b></td>
+      <td>
+        <input
+                type="password"
+                name="Pwd"
+                size="20"
+                onFocus="this.select();"
+        >
+      </td>
+    </tr>
+    <tr>
+      <td><b>Проверка пароля:</b></td>
+      <td>
+        <input
+                type="password"
+                name="Pwd1"
+                size="20"
+                onFocus="this.select();"
+        >
+      </td>
+    </tr>
+    <tr>
+      <td><b>Электронная почта:</b></td>
+      <td>
+        <input type="email" name="Email" size="20">
+        <div id="email-error" class="error-message"></div>
+      </td>
+    </tr>
+  </table>
+  <input type="button" value="Готово" onClick="Complete1();">
+  <input type="reset" value="Сброс">
+</form>
+</body>
+</html>

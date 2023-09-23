@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="button"],
+        input[type="reset"] {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover,
+        input[type="reset"]:hover {
+            background-color: #555;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        function validateEmail(email) {
+            // Регулярное выражение для проверки формата email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function Complete1() {
+            const id = document.getElementById("Id").value;
+            const password = document.getElementById("Pwd").value;
+            const confirmPassword = document.getElementById("Pwd1").value;
+
+            if (!validateEmail(id)) {
+                alert("Неправильный формат email");
+            } else if (password === confirmPassword) {
+                alert("Вас зарегистрировали\nID=" + id + "\nPassword=" + password);
+            } else {
+                alert("Ошибка при вводе пароля\nПопробуйте еще раз");
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="bg-image"
+     style="background-image: url('https://img1.goodfon.com/original/5049x3532/9/87/priroda-gory-leto-svet-solnca.jpg'); height: 100vh; overflow: auto;background-position: center;">
+    <h1>Регистрация</h1>
+    <form>
+        <table>
+            <tr>
+                <td><b>Идентификатор (Email):</b></td>
+                <td><input id="Id" name="Id" type="text" onblur="this.value = this.value.toLowerCase();"></td>
+            </tr>
+            <tr>
+                <td><b>Пароль:</b></td>
+                <td><input type="password" id="Pwd" name="Pwd" onfocus="this.select();"></td>
+            </tr>
+            <tr>
+                <td><b>Проверка пароля:</b></td>
+                <td><input type="password" id="Pwd1" name="Pwd1" onfocus="this.select();"></td>
+            </tr>
+        </table>
+        <input type="button" value="Готово" onclick="Complete1();">
+        <input type="reset" value="Сброс">
+    </form>
+</div>
+</body>
+</html>
